@@ -15,7 +15,7 @@ const firebaseConfig = {
   appId: process.env.FIREBASE_APP_ID || envs.FIREBASE_APP_ID
 };
 
-const mongoConfig = process.env.MONGO_DB_URL || envs.MONGO_DB_URL;
+const mongoConfig = process.env.DB_CONNECTION  || envs.DB_CONNECTION ;
 
 const config = {
 	firebaseConfig,

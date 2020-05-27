@@ -13,7 +13,8 @@
                     <p>Subido por {{user}}</p>
                 </div>
                 <div>
-                    <p>{{body}}</p>
+                    <p>{{desc}}</p>
+                    <button @click="art">btn</button>
                 </div>
             </div>
         </div>
@@ -22,18 +23,13 @@
 
 <script>
 export default {
- props: ["votes", "title", "user", "body"],
- data(){
-     return{
-         body:"",
-     }
- },
+ props: ["votes", "title", "user", "desc"],
  methods:{
-     async asyncData({ $axios }) {
-  let response = await $axios.get('http://localhost:8082')
-    this.body = response.data
-}
+     art(){
+         this.$emit('click')
+     }
  }
+
 }
 </script>
 

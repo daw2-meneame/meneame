@@ -1,4 +1,4 @@
-/* const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 let ArticleSchema = new Schema({
@@ -10,4 +10,4 @@ let ArticleSchema = new Schema({
 });
 
 module.exports = ArticleSchema
- */
+

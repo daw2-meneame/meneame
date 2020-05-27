@@ -13,10 +13,12 @@ Clon Menéame Ejemplo de pasos a seguir para su desarrollo
 5.Crear un endpoint simple ( por ejemplo: [GET] /articles ) con datos estáticos (sin mongo, sólo un array de objetos)
 6.Consumir el endpoint con axios desde el frontend (sin maquetación, con un ul>li basta)
 7.Crear el endpoint de registro de usuarios [POST] /users y probarlo con POSTMAN
- 8.Crear el endpoint de login [POST] /auth/login. Probarlo con POSTMAN
+8.Crear el endpoint de login [POST] /auth/login. Probarlo con POSTMAN
  9.Crear un endpoint que necesite autenticación. [POST] /articles. Probarlo con POSTMAN
- 10.Hacer un despliegue en Heroku de la API 11.Crear resto de rutas en frontend *
- 12.Crear resto de endpoints en API * 13.Mejorar la maquetación del frontend *
+ 10.Hacer un despliegue en Heroku de la API
+ 11.Crear resto de rutas en frontend *
+ 12.Crear resto de endpoints en API *
+ 13.Mejorar la maquetación del frontend *
  14.Desplegar versiones finales de API (Heroku) y Frontend (Firebase) * Esta tarea puede hacerse en paralelo otras Orden de implementación de funcionalidades
   1.Listado de artículos
   2.Login

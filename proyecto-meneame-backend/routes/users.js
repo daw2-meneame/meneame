@@ -24,10 +24,10 @@ router.route("/users")
 
     res.status(201).json(createdItem)
     console.info(NewUser)
-    }catch(e){
+    } catch(e){
       res.status(500).json({error: e})
     }
-
+  });
 /*     try {
       let newUser = await new User({
       fullname: data.name,
@@ -39,7 +39,7 @@ router.route("/users")
     }catch(e){
       res.status(500).json({error:e})
     }
-  }); */
+  */
 
  /*  req.body.password = md5(req.body.password)
 

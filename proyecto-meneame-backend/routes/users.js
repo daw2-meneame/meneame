@@ -6,14 +6,14 @@ app.get("/users", (req,res)=> {
   // para administradores listar los usuarios
 })
 
-async createUser(){
+/* async createUser(){
   try{
     // let auth = await firebase.auth().createUserWithEmailAndPassword(this.user,this.pass)
     // console.log(auth.user.uid)
   }catch(err){
     alert(err.message)
   }
-},
+} */
 
 app.post("/users", (req,res) => {
   // Obtener del request los datos del usuario (p.ej: nombre,a pellidos, email, password, y otros datos adicionaless)

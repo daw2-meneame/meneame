@@ -16,10 +16,10 @@ export default {
     return{
          menu: [
         {id: 1, path: "/", name: "Home"},
-        {id: 2, path: "/login", name: "Login"},
-        {id: 3, path: "/register", name: "Registro"},
-        {id: 4, path: "/articles", name: "Artículos"},
-        {id: 5, path: "/", name: ""},
+        {id: 2, path: "/articles", name: "Articles"},
+        {id: 3, path: "/login", name: "Login"},
+        {id: 4, path: "/register", name: "Registro"},
+        {id: 6, path: "/", name: ""},
       ]
     }
   },

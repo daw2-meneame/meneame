@@ -53,8 +53,8 @@ name: 'register',
     },
     async register(){
       try{
-       let auth = await firebase.auth().createUserWithEmailAndPassword(this.email,this.password)
-       console.log(auth.email.uid)
+      //  let auth = await firebase.auth().createUserWithEmailAndPassword(this.email,this.password)
+      //  console.log(auth.email.uid)
       }catch(err){
         alert(err.message)
       }

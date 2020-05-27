@@ -1,19 +1,24 @@
 <template>
 <div>
+
 <h2>esta es la página principal</h2>
+
+  <NewsCard />
 
 </div>
 </template>
 
+
 <script>
-import MainNav from '~/components/MainNav'
+import NewsCard from '~/partials/NewsCard';
 
 
 export default {
-  components: {
-    MainNav
-  }
-}
+  component,
+    NewsCard,
+
+ }
+
 </script>
 
 <style>

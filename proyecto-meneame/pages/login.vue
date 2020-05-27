@@ -19,11 +19,7 @@
 									<input type="checkbox"> Remember me
 								</label>
 							</div>
-<<<<<<< HEAD
 							<button @click="login" type="submit" class="btn btn-default">Login</button>
-=======
-							<button type="submit" class="btn btn-default" @click="login">Login</button>
->>>>>>> 1590eec85116f621cfecfe9e6a7eaa8ea6fff2b5
 						</form>
 					</div>
 				</div>
@@ -36,7 +32,6 @@
 export default {
 	asyncData(){
 		return{
-<<<<<<< HEAD
 			email:"",
 			password:""
 		}
@@ -52,30 +47,5 @@ export default {
                 })
 		}
 	}
-=======
-            email:"",
-            password:""
-        }
-  },
-  methods:{
-     async login(){
-      let loginData = {
-        email: this.email,
-        password: this.password
-      }
-      try{
-        let response = await this.$http.post("auth/login", loginData)
-        window.localStorage.setItem("token",response.data.token)
-        this.checkAuth()
-      }catch(e){
-        console.log("Se ha producido un error")
-      }
-    },
-    async logout(){
-      window.localStorage.removeItem("token")
-      this.checkAuth()
-    },
-  }
->>>>>>> 1590eec85116f621cfecfe9e6a7eaa8ea6fff2b5
 }
 </script>

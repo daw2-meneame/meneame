@@ -1,12 +1,10 @@
 const express = require('express')
 const jwt = require('jsonwebtoken')
-const firebase = require('firebase');
+//const firebase = require('firebase');
 
+// firebase.initializeApp(config.firebaseConfig);
 
-
-firebase.initializeApp(config.firebaseConfig);
-
-async function checkEmailAndPassword(email, password) {
+/* async function checkEmailAndPassword(email, password) {
   let auth = await firebase.auth().signInWithEmailAndPassword(email, password);
   return auth;
 }
@@ -32,3 +30,4 @@ app.post("/auth/login", async (req, res) => {
     res.status(401).json({ message: e.message });
   }
 });
+ */

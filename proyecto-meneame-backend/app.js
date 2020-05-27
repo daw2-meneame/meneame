@@ -16,20 +16,26 @@ app.use(cors())
 
 
 //traemos las rutas de ficheros externos
-const authRoutes = require('./routes/auth')
-const usersRoutes = require('./routes/users')
-const categoriesRoutes = require('./routes/categories')
+//const categoriesRoutes = require('./routes/categories')
+//const usersRoutes = require('./routes/users')
+//const authRoutes = require('./routes/auth')
 const articlesRoutes = require('./routes/articles')
-const registerRoutes = require('./routes/register')
+//const registerRoutes = require('./routes/register')
+
+ app.set("articles", [{
+  title: "Primer artículo",
+  entradilla: "Resumen del articulo",
+  categoria: "Moda",
+  URL: "https://www.harpersbazaar.com/es/moda/tendencias/a28025141/articulos-moda-buscados-2019-tendencias/",
+  enabled: true
+}]),
 
 //enganchamos las rutas
-app.use(categoriesRoutes)
-app.use(usersRoutes)
-app.use(authRoutes)
+//app.use(categoriesRoutes)
+//app.use(usersRoutes)
+//app.use(authRoutes)
+//app.use(registerRoutes)
 app.use(articlesRoutes)
-app.use(registerRoutes)
-
-
 
 //exponemos la instancia configurada de la app
 module.exports = app

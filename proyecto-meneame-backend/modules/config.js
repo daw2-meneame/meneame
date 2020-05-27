@@ -22,7 +22,7 @@ const config = {
 	mongoConfig
 }
 
-exports.firebaseConfig = firebaseConfig
+//exports.firebaseConfig = firebaseConfig
 exports.mongoConfig = mongoConfig
 
 module.exports = config;

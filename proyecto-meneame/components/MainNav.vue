@@ -44,7 +44,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<nuxt-link class="navbar-brand" to="/"><img class="img-responsive" src="img/logo.png" alt="Logo" /></nuxt-link>
+							<nuxt-link class="navbar-brand" to="/"><img class="img-responsive" src="img/logo.png" alt="Logo" />LOGO</nuxt-link>
 						</div>
 
 						<!-- Collect the nav links, forms, and other content for toggling -->

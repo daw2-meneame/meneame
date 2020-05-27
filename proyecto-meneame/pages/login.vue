@@ -9,17 +9,17 @@
 						<h3>Sign In, To Your Account</h3>
 						<form role="form" id="login-form">
 							<div class="form-group">
-								<input type="text" class="form-control" id="exampleInputUser1" placeholder="Username">
+								<input v-model="email" type="email" class="form-control" id="exampleInputUser1" placeholder="Email">
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+								<input v-model="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 							</div>
 							<div class="checkbox form-group">
 								<label>
 									<input type="checkbox"> Remember me
 								</label>
 							</div>
-							<button type="submit" class="btn btn-default">Login</button>
+							<button @click="login" type="submit" class="btn btn-default">Login</button>
 						</form>
 					</div>
 				</div>
@@ -29,6 +29,22 @@
 
 <script>
 export default {
-
+	asyncData(){
+		return{
+			email:"",
+			password:""
+		}
+	},
+	methods:{
+		login(){
+			 this.$fireAuth.signInWithEmailAndPassword(this.email, this.password)
+                .then(response =>{
+                    this.$router.push('/')
+                })
+                .catch((error)=>{
+                    alert(error.message)
+                })
+		}
+	}
 }
 </script>

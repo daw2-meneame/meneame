@@ -1,8 +1,7 @@
 <template>
   <div>
-    <MainNav :menu="menu" :category="categories" ></MainNav>
-   <!--  :current="currentCategory" @change="changeCurrentCategory"
-:articles="articlesFiltered" -->
+    <MainNav :menu="menu" :categories="categories" :current="currentCategory" :change="changeCurrentCategory" ></MainNav>
+   <!-- :articles="articlesFiltered" -->
     <nuxt />
     <MainFooter></MainFooter>
   </div>
@@ -32,13 +31,21 @@ export default {
      ],
     }
   },
+  methods:{
+  changeCurrentCategory(slug){
+      this.currentCategory = slug
+    }
+  },
    computed:{
-     articlesFiltered(){
+     /* articles(){
+       return this.articles
+     }, */
+/*      articlesFiltered(){
       if(this.currentCategory==="all"){
         return this.articles
       }
         return this.articles.filter(item=> item.category === this.currentCategory)
-     }
+     }*/
     },
   components:{
     MainNav,

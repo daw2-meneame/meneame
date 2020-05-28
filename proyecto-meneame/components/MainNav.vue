@@ -11,16 +11,24 @@
 								</nuxt-link>
 
 								<ul class="nav navbar-nav navbar-right d-sm-inline-block">
-									<nuxt-link v-for="item in category" :key="item.id"
-                   				class="nav-link" :class="{active: item.slug === current}"
-                      			:to="item.slug" @click.prevent="changeCurrentCategory(item.slug)"
-                     			>{{item.title}}
-									</nuxt-link>
+
 								<li class="nav-link" v-for="item in menu" :key="item.id">
 								<nuxt-link :to="item.path">{{item.name}}</nuxt-link>
 								</li>
 								</ul>
 							</div>
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <span>Categories:</span>
+								<ul class="nav navbar-nav navbar-right d-sm-inline-block">
+                  <li class="nav-link">
+                      <nuxt-link v-for="category in categories" :key="category.id"
+                                class="nav-link" :class="{active: category.slug === current}"
+                                  :to="category.slug" @click.prevent="changeCurrentCategory(category.slug)"
+                                >{{category.title}}
+                        </nuxt-link>
+                  </li>
+                </ul>
+              </div>
 						</div>
 					</div>
 				</nav>
@@ -30,7 +38,7 @@
 
 <script>
 export default {
-	props:["menu", "category", "current"],
+	props:["menu", "categories", "current"],
 	methods:{
 		changeCurrentCategory(slug){
 			this.$emit("change", slug)

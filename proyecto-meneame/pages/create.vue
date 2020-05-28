@@ -9,7 +9,7 @@
         <input placeholder="subtitle" v-model="article.subtitle" type="text"/>
         <input placeholder="category" v-model="article.category" type="text"/>
         <input placeholder="url" v-model="article.url" type="text"/>
-        <button @click.prevent="addArticles">Crear articulo</button>
+        <button @click.prevent="addArticle">Crear articulo</button>
       </div>
    </form>
 
@@ -17,6 +17,7 @@
 
 <script>
 export default {
+  props:["card"],
   data(){
     return{
       article:
@@ -28,13 +29,13 @@ export default {
         },
     }
   },
-  methods:{
-      async addArticles(){
-     /*    let config = {
+   methods:{
+      async addArticle(){
+         let config = {
         headers: {
             'Authorization': `Bearer ${window.localStorage.getItem("token")}`
         }
-      } */
+      }
       let newArticle = this.article
       try{
       let response = await this.$axios.post("http://localhost:8082/articles", newArticle)
@@ -51,9 +52,7 @@ export default {
   this.articles = response.data
   }, */
 
-}
+   }
+
 </script>
 
-<style>
-
-</style>

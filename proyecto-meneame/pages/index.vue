@@ -13,8 +13,10 @@
 import NewsCard from '@/partials/NewsCard'
 
 export default {
+
   data(){
     return{
+      newArticle:[],
       articles:[
       {
         title:"hola que ase",
@@ -37,6 +39,7 @@ export default {
       ]
     }
   },
+
   components:{
     NewsCard,
   }

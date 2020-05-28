@@ -1,16 +1,12 @@
 <template>
-<div>
-
-  <NewsCard v-for="item in articles" :key="item.id"
-    :title="item.title"
-    :category="item.category"
-    :user="item.user"
-    :entry="item.entry"
-    :url="item.url"
-  />
-      <button @click="getArticles">Obtener los artículos</button>
-
-</div>
+  <div>
+    <NewsCard v-for="item in articles" :key="item.id"
+      :title="item.title"
+      :subtitle="item.subtitle"
+      :category="item.category"
+      :url="item.url"
+    />
+  </div>
 </template>
 
 <script>
@@ -20,26 +16,31 @@ export default {
   data(){
     return{
       articles:[
-        {id:1, title:"soy el primero", category:"deportes", user:"pepe", entry:"hola soy el primer artículo", url:"http://google.es" }
+      {
+        title:"hola que ase",
+        subtitle: "gheugheuogheouge",
+        category:"deportes",
+        url:"ehgheioghehgeoshge"
+        },
+         {
+        title:"hola que ase",
+        subtitle: "gheugheuogheouge",
+        category:"cine",
+        url:"ehgheioghehgeoshge"
+        },
+         {
+        title:"hola que ase",
+        subtitle: "gheugheuogheouge",
+        category:"moda",
+        url:"ehgheioghehgeoshge"
+        }
       ]
     }
   },
-  async getArticles(){
-      let config = {
-        headers: {
-            'Authorization': `Bearer ${window.localStorage.getItem("token")}`
-        }
-      }
-      let response = await this.$axios.get("articles", config)
-      this.articles = response.data
-    },
-
   components:{
-    NewsCard
+    NewsCard,
   }
-
- }
-
+}
 
 </script>
 

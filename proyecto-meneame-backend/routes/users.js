@@ -14,7 +14,7 @@ router.route("/users")
   .post(async (req, res) => {
     let data = req.body
 
-    try{
+    try {
       let newUser = await createUserFirebase(data.email, data.password)
       let UserData = {
         firstname: data.firstname,
@@ -22,9 +22,10 @@ router.route("/users")
         email: data.email,
         _id: newUser.user.uid
       }
-     let newUserInMongo = await new User(UserData).save();
 
-    res.json(newUserInMongo)
+      let newUserInMongo = await new User(UserData).save();
+
+      res.json(newUserInMongo)
 
     } catch(e){
       res.status(500).json({error: e.message})

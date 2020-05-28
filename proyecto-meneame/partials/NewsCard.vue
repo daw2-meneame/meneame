@@ -5,11 +5,11 @@
 					<div class="entry">
 						<h3><a href="#">{{title}}</a></h3>
 						<span class="meta">
-						category: {{category}} | by: {{user.uid}} | a: {{url}}
+						category: {{category}} | <!-- by: {{}} --> | a: {{url}}
 						</span>
 						<p>{{entry}}</p>
 
-                        <div class="votes"><span>votos</span></div>
+           <div class="votes"><span>votos</span></div>
 
 				   </div>
 		        </div>
@@ -19,7 +19,7 @@
 
 <script>
 export default {
- props: ["title", "category", "user", "entry", "url"],
+ props: ["title", "category", "user", "subtitle", "url"],
  data(){
      return{
          body:"",

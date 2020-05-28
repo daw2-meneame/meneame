@@ -15,7 +15,8 @@ Clon Menéame Ejemplo de pasos a seguir para su desarrollo
 7.Crear el endpoint de registro de usuarios [POST] /users y probarlo con POSTMAN
 8.Crear el endpoint de login [POST] /auth/login. Probarlo con POSTMAN
 9.Crear un endpoint que necesite autenticación. [POST] /articles. Probarlo con POSTMAN
- 10.Hacer un despliegue en Heroku de la API
+10.Hacer un despliegue en Heroku de la 
+
  11.Crear resto de rutas en frontend *
  12.Crear resto de endpoints en API *
  13.Mejorar la maquetación del frontend *

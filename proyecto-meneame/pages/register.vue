@@ -12,15 +12,15 @@
 								<input v-model="firstname" type="text" class="form-control" id="exampleInputUser1" placeholder="Firstname">
 							</div>
               <div class="form-group">
-								<input v-model="lastname" type="text" class="form-control" id="exampleInputUser1" placeholder="Lastname">
+								<input v-model="lastname" type="text" class="form-control" id="exampleInputUser2" placeholder="Lastname">
 							</div>
 							<div class="form-group">
-								<input v-model="email" type="email" class="form-control" id="exampleInputUser1" placeholder="Email">
+								<input v-model="email" type="email" class="form-control" id="exampleInputUser3" placeholder="Email">
 							</div>
 							<div class="form-group">
-								<input v-model="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+								<input v-model="password" type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
 							</div>
-							<button type="submit" class="btn btn-default" @click="resgister">Register</button>
+							<button type="submit" class="btn btn-default" @click.prevent="register">Register</button>
 
              <h3 class="text-center">¿ya tienes cuenta? </h3>
                <button type="submit" class="btn btn-default"><nuxt-link to="/login" @click="showLogin=true">LOGIN</nuxt-link></button>
@@ -41,26 +41,28 @@ name: 'register',
       lastname: "",
       email: "",
       password: "",
-      showLogin: true
     }
   },
-  mounted() {
-    this.checkAuth();
-  },
-  methods: {
-    checkAuth(){
-      this.isAuth = window.localStorage.getItem("token")!= null
-    },
-    async register(){
+  methods:{
+  async register(){
+      let UserRegistred = {
+        firstname: this.firstname,
+        lastname: this.lastname,
+        email: this.email,
+        password: this.password
+      }
+
       try{
-      //  let auth = await firebase.auth().createUserWithEmailAndPassword(this.email,this.password)
-      //  console.log(auth.email.uid)
+        let response = await this.$axios.post("http://localhost:8082/users", UserRegistred)
+
+        this.$router.push("/login")
       }catch(err){
-        alert(err.message)
+        alert(err.response.data.error)
       }
     }
   }
 }
+
 </script>
 
 <style>

@@ -5,6 +5,11 @@ const express = require('express')
 const bearerToken = require('express-bearer-token')
 const cors = require('cors')
 const database = require('./modules/database')
+const firebase = require('firebase')
+const config = require('./modules/config')
+
+firebase.initializeApp(config.firebaseConfig);
+
 
 //instancia de express
 const app = express()
@@ -17,10 +22,9 @@ app.use(cors())
 
 //traemos las rutas de ficheros externos
 //const categoriesRoutes = require('./routes/categories')
-//const usersRoutes = require('./routes/users')
-//const authRoutes = require('./routes/auth')
+const usersRoutes = require('./routes/users')
+const authRoutes = require('./routes/auth')
 const articlesRoutes = require('./routes/articles')
-//const registerRoutes = require('./routes/register')
 
 app.set("articles", [{
   title: "Primer artículo",
@@ -30,22 +34,13 @@ app.set("articles", [{
   enabled: true
 }]),
 
-app.set("users", [{
-  id: 1,
-  name: "Usario 1",
-  lastname: "Apellido",
-  status: "user"
-}])
 
 //enganchamos las rutas
 //app.use(categoriesRoutes)
-//app.use(usersRoutes)
-//app.use(authRoutes)
-//app.use(registerRoutes)
+app.use(usersRoutes)
+app.use(authRoutes)
 app.use(articlesRoutes)
 
-
-database.connect()
 
 //exponemos la instancia configurada de la app
 module.exports = app

@@ -4,7 +4,7 @@
 const express = require('express')
 const bearerToken = require('express-bearer-token')
 const cors = require('cors')
-
+const database = require('./modules/database')
 
 //instancia de express
 const app = express()
@@ -22,7 +22,7 @@ app.use(cors())
 const articlesRoutes = require('./routes/articles')
 //const registerRoutes = require('./routes/register')
 
- app.set("articles", [{
+app.set("articles", [{
   title: "Primer artículo",
   entradilla: "Resumen del articulo",
   categoria: "Moda",
@@ -30,12 +30,22 @@ const articlesRoutes = require('./routes/articles')
   enabled: true
 }]),
 
+app.set("users", [{
+  id: 1,
+  name: "Usario 1",
+  lastname: "Apellido",
+  status: "user"
+}])
+
 //enganchamos las rutas
 //app.use(categoriesRoutes)
 //app.use(usersRoutes)
 //app.use(authRoutes)
 //app.use(registerRoutes)
 app.use(articlesRoutes)
+
+
+database.connect()
 
 //exponemos la instancia configurada de la app
 module.exports = app

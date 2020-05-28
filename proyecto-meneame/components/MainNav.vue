@@ -19,6 +19,10 @@
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <button>AÑADIR ARTÍCULO</button>
 							<ul class="nav navbar-nav navbar-right">
+								<nuxt-link v-for="category in categories" :key="category.id"
+                   class="nav-link" :class="{active: category.slug === current}"
+                      href="#" @click.prevent="changeCurrentCategory(category.slug)"
+                     >{{category.title}}</nuxt-link>
 								<li v-for="item in menu" :key="item.id"><nuxt-link :to="item.path" >{{item.name}}</nuxt-link></li>
 
 									</ul>
@@ -31,6 +35,11 @@
 
 <script>
 export default {
-  props:["menu"]
+	props:["menu", "categories", "current"],
+	methods:{
+		changeCurrentCategory(slug){
+			this.$emit("change", slug)
+		}
+	}
 }
 </script>

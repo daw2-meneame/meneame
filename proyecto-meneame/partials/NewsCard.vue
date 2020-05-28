@@ -1,28 +1,24 @@
 <template>
-    <div>
-        <div>
+<div class="blog" id="blog">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 col-sm-12">
+							<div class="entry">
+								<h3><a href="#">{{title}}</a></h3>
+								<span class="meta">
+									category: {{category}} | by: {{user.uid}} | a: {{url}}
+								</span>
+								<p>{{entry}}</p>
             <div>
-                <div class="votes"><span>{{votes}} votos</span></div>
+                <div class="votes"><span>votos</span></div>
             </div>
-            <a class="thumbnail" href=""><img src="" alt=""></a>
-            <div>
-                <h2 class="title">
-                    <a href="">{{title}}</a>
-                </h2>
-                <div>
-                    <p>Subido por {{user}}</p>
-                </div>
-                <div>
-                    <p>{{body}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
+							</div>
+						</div>
 </template>
 
 <script>
 export default {
- props: ["votes", "title", "user", "body"],
+ props: ["title", "category", "user", "entry", "url"],
  data(){
      return{
          body:"",

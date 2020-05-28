@@ -16,21 +16,19 @@
 						</div>
 </template>
 
+
 <script>
 export default {
- props: ["title", "category", "user", "entry", "url"],
+   props: ["title", "category", "user", "entry", "url"],
  data(){
      return{
          body:"",
      }
  },
- methods:{
+/*  methods:{
      art(){
          this.$emit('click')
      }
- }
-
+ } */
 }
 </script>
-
-

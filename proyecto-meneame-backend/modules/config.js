@@ -16,10 +16,12 @@ const firebaseConfig = {
 };
 
 const mongoConfig = process.env.DB_CONNECTION  || envs.DB_CONNECTION ;
+const jwtPassword = process.env.JWT_PASSWORD  || envs.JWT_PASSWORD ;
 
 const config = {
 	firebaseConfig,
-	mongoConfig
+  mongoConfig,
+  jwtPassword
 }
 
 //exports.firebaseConfig = firebaseConfig

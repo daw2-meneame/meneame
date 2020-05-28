@@ -19,7 +19,8 @@
 									<input type="checkbox"> Remember me
 								</label>
 							</div>
-							<button @click="login" type="submit" class="btn btn-default">Login</button>
+							<button v-if="!isAuth" @click.prevent="login" type="submit" class="btn btn-default">Login</button>
+							<button v-else  @click.prevent="logout">Logout</button>
 						</form>
 					</div>
 				</div>
@@ -32,20 +33,37 @@
 export default {
 	asyncData(){
 		return{
-			email:"",
-			password:""
+      	isAuth: false,
+      	email:"",
+			  password:""
 		}
 	},
 	methods:{
-		login(){
-			 this.$fireAuth.signInWithEmailAndPassword(this.email, this.password)
-                .then(response =>{
-                    this.$router.push('/')
-                })
-                .catch((error)=>{
-                    alert(error.message)
-                })
+    checkAuth(){
+    this.isAuth = window.localStorage.getItem("token")!= null
+    },
+		async login(){
+      let loginData = {
+        email: this.email,
+        password: this.password
+      }
+      try {
+		let response = await this.$axios.post("http://localhost:8082/auth/login", loginData)
+		console.log(response.data.token)
+
+		window.localStorage.setItem("token", response.data.token)
+		this.checkAuth()
+		this.$router.push('/')
+
+      } catch(err){
+        console.log(err.response.data.error)
+      }
+		},
+		async logout(){
+    	window.localStorage.removeItem("token")
+    	this.checkAuth()
 		}
 	}
 }
+
 </script>

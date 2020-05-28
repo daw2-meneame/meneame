@@ -1,33 +1,36 @@
 const express = require('express')
 const jwt = require('jsonwebtoken')
-//const firebase = require('firebase');
+const firebase = require('firebase')
+const config = require('../modules/config')
+const router = express.Router()
 
-// firebase.initializeApp(config.firebaseConfig);
-
-/* async function checkEmailAndPassword(email, password) {
+async function checkEmailAndPassword(email, password) {
   let auth = await firebase.auth().signInWithEmailAndPassword(email, password);
   return auth;
-}
 
-app.post("/auth/login", async (req, res) => {
-  let credentials = req.body;
+}
+router.route("/auth/login")
+  .post(async (req, res) => {
+
+  let credentials = req.body
+
   try {
-    let auth = await checkEmailAndPassword(
-      credentials.email,
-      credentials.password
-    );
+    let auth = await checkEmailAndPassword(credentials.email , credentials.password);
 
       let payload = {
-        id: auth.user.uid,
-        fullname: "Álex Martín",
-        profile: "superadmin",
+        id: auth._id,
+        email: credentials.email,
+        password: credentials.password,
       };
 
-      let token = jwt.sign(payload, JWT_PASSWORD);
+      let token = jwt.sign(payload, config.jwtPassword);
+
       res.json({ token });
 
   } catch (e) {
     res.status(401).json({ message: e.message });
   }
+
 });
- */
+
+module.exports = router

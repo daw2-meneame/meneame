@@ -36,11 +36,13 @@ export default {
         }
       } */
       let newArticle = this.article
+      console.log('>>este es el articulo',newArticle)
       try{
-      let response = await this.$axios.post("http://localhost:8082/articles", newArticle)
+        let response = await this.$axios.post("http://localhost:8082/articles", newArticle)
+          console.log(response, 'entra a esta funcion')
       this.$router.push('/')
       }catch(err){
-        console.log(err.response.data.error)
+        console.log('no se conecta')
       }
 
     }

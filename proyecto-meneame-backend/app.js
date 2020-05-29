@@ -26,14 +26,14 @@ const usersRoutes = require('./routes/users')
 const authRoutes = require('./routes/auth')
 const articlesRoutes = require('./routes/articles')
 
-app.set("articles", [{
+/* app.set("articles", [{
   title: "Primer artículo",
   entradilla: "Resumen del articulo",
   categoria: "Moda",
   URL: "https://www.harpersbazaar.com/es/moda/tendencias/a28025141/articulos-moda-buscados-2019-tendencias/",
   enabled: true
 }]),
-
+ */
 
 //enganchamos las rutas
 //app.use(categoriesRoutes)

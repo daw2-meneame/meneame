@@ -1,36 +1,39 @@
+const mongoose = require('mongoose')
 const express = require('express')
-const Articles = require('../models/articles')
+const Article = require('../models/articles')
 const {json} = require('express')
 const router = express.Router()
 
 
 router.route("/articles")
-  .get(async (req, res) => {
+/*   .get(async (req, res) => {
       let articleList = await Articles.find().exec()
       res.json(articleList)
-   })
+   }) */
 
   .post(async (req, res) => {
-    let data = req.body;
-    console.log(data)
-    try {
-      let newArticle = await new Articles(articleData).save();
+    let data = req.body
 
-      let articleData = {
-      title : data.title,
-      subtitle : data.subtitle,
-      category : data.category,
-      url : data.url
+    console.info(data.title)
+    try{
+      let newArticle = {
+        title : data.title,
+        subtitle : data.subtitle,
+        category : data.category,
+        url : data.url
       }
+        let articleInMongo = await new Article(newArticle).save()
 
-      console.log(newArticle)
-      res.json(newArticle)
+        res.json(articleInMongo);
 
-    } catch (e) {
-      res.status(500).json({ error: e.message});
+        console.log(articleInMongo)
+
+    }catch (e){
+      res.status(500).json({error:e.message})
+      console.log('no se conecto con la base de datos');
     }
-    res.json(newArticle)
-  })
+
+    });
 
 
 module.exports = router

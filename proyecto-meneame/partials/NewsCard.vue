@@ -7,7 +7,7 @@
 						<span class="meta">
 						category: {{category}} | <!-- by: {{}} --> | a: {{url}}
 						</span>
-						<p>{{entry}}</p>
+						<p>{{}}</p>
 
            <div class="votes"><span>votos</span></div>
 

@@ -27,4 +27,5 @@ const config = {
 //exports.firebaseConfig = firebaseConfig
 exports.mongoConfig = mongoConfig
 
+
 module.exports = config;

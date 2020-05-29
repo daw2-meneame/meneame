@@ -18,7 +18,7 @@ router.route("/auth/login")
     let auth = await checkEmailAndPassword(credentials.email , credentials.password);
 
       let payload = {
-        id: auth._id,
+        id: auth.user.uid,
         email: credentials.email,
         password: credentials.password,
       };

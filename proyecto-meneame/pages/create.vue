@@ -9,7 +9,7 @@
         <input placeholder="subtitle" v-model="article.subtitle" type="text"/>
         <input placeholder="category" v-model="article.category" type="text"/>
         <input placeholder="url" v-model="article.url" type="text"/>
-        <button @click.prevent="addArticles">Crear articulo</button>
+        <button @click.prevent="addArticle">Crear articulo</button>
       </div>
    </form>
 
@@ -17,6 +17,7 @@
 
 <script>
 export default {
+  props:["card"],
   data(){
     return{
       article:
@@ -29,33 +30,29 @@ export default {
     }
   },
   methods:{
-      async addArticles(){
-     /*    let config = {
-        headers: {
-            'Authorization': `Bearer ${window.localStorage.getItem("token")}`
+
+      async addArticle(){
+            let config = {
+              headers: {
+                'Authorization': `Bearer ${window.localStorage.getItem("token")}`
+              }
+            }
+        let newArticle = {
+          title: this.article.title,
+          subtitle: this.article.subtitle,
+          category: this.article.category,
+          url: this.article.url
         }
-      } */
-      let newArticle = this.article
-      console.log('>>este es el articulo',newArticle)
-      try{
-        let response = await this.$axios.post("http://localhost:8082/articles", newArticle)
-          console.log(response, 'entra a esta funcion')
-      this.$router.push('/')
-      }catch(err){
-        console.log('no se conecta')
-      }
+        try {
+          let response = await this.$axios.post("http://localhost:8082/articles", newArticle, config)
+          this.$router.push('/')
+        } catch(err) {
+          console.log('no se conecta')
+        }
 
     }
-  },
-
-/*   async getArticle(){
-  let response = await this.$axios.get("/articles")
-  this.articles = response.data
-  }, */
-
+  }
 }
+
 </script>
 
-<style>
-
-</style>

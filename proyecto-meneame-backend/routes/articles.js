@@ -4,17 +4,17 @@ const Article = require('../models/articles')
 const {json} = require('express')
 const router = express.Router()
 
+const mustAuth = require('../middleware/mustAuth')
+
 
 router.route("/articles")
-/*   .get(async (req, res) => {
-      let articleList = await Articles.find().exec()
+  .get(async (req, res) => {
+      let articleList = await Article.find().exec()
       res.json(articleList)
-   }) */
+   })
 
-  .post(async (req, res) => {
+  .post(mustAuth(), async (req, res) => {
     let data = req.body
-
-    console.info(data.title)
     try{
       let newArticle = {
         title : data.title,
@@ -22,18 +22,14 @@ router.route("/articles")
         category : data.category,
         url : data.url
       }
-        let articleInMongo = await new Article(newArticle).save()
+      let articleInMongo = await new Article(newArticle).save()
 
-        res.json(articleInMongo);
-
-        console.log(articleInMongo)
+      res.json(articleInMongo);
 
     }catch (e){
       res.status(500).json({error:e.message})
-      console.log('no se conecto con la base de datos');
     }
-
-    });
+});
 
 
 module.exports = router

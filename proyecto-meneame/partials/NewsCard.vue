@@ -7,9 +7,9 @@
 						<span class="meta">
 						category: {{category}} | <!-- by: {{}} --> | a: {{url}}
 						</span>
-						<p>{{}}</p>
+						<p>{{subtitle}}</p>
 
-           <div class="votes"><span>votos</span></div>
+						<div class="votes"><span>votos</span></div>
 
 				   </div>
 		        </div>
@@ -19,15 +19,11 @@
 
 <script>
 export default {
- props: ["title", "category", "user", "subtitle", "url"],
+ props: ["title", "category", "subtitle", "url"],
  data(){
      return{
          body:"",
      }
  },
-
  }
-
 </script>
-
-

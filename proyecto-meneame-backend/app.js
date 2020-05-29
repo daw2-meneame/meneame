@@ -41,6 +41,7 @@ app.use(usersRoutes)
 app.use(authRoutes)
 app.use(articlesRoutes)
 
+database.connect()
 
 //exponemos la instancia configurada de la app
 module.exports = app

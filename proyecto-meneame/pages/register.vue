@@ -53,7 +53,7 @@ name: 'register',
       }
 
       try{
-        let response = await this.$axios.post("http://localhost:8082/users", UserRegistred)
+        let response = await this.$axios.post("https://meneame-app.herokuapp.com/users", UserRegistred)
 
         this.$router.push("/login")
       }catch(err){

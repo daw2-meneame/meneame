@@ -48,7 +48,7 @@ export default {
         password: this.password
       }
       try {
-		let response = await this.$axios.post("http://localhost:8082/auth/login", loginData)
+		let response = await this.$axios.post("https://meneame-app.herokuapp.com/auth/login", loginData)
 		console.log(response.data.token)
 
 		window.localStorage.setItem("token", response.data.token)

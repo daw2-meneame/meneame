@@ -3,14 +3,19 @@
             <span>Categories:</span>
                     <nuxt-link
                       v-for="category in categories" :key="category.id"
-                      class="nav-link" :class="{active: category.slug === current}"
-                      href="#" @click.prevent="changeCurrentCategory(category.slug)"
+                      class="nav-link" :class="{active: category.category === current}"
+                      to="#" @click.prevent="changeCurrentCategory(category.category)"
                       >{{category.title}}
                       </nuxt-link>
       </div>
 </template>
 <script>
 export default {
-  props:["categories"]
+  props:["categories", "current"],
+  methods:{
+    changeCurrentCategory(category){
+        this.$emit("change", category)
+      },
+  }
 }
 </script>

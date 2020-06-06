@@ -48,7 +48,7 @@ export default {
           url: this.article.url
         }
         try {
-          let response = await this.$axios.post("https://meneame-app.herokuapp.com/", newArticle, config)
+          let response = await this.$axios.post("http://localhost:8082/articles", newArticle, config)
           this.$router.push('/')
         } catch(err) {
           console.log('no se conecta')

@@ -58,7 +58,7 @@ export default {
       let newArticle = {};
 
       try {
-        let response = await this.$axios.get("https://meneame-app.herokuapp.com/articles");
+        let response = await this.$axios.get("http://localhost:8082/articles");
         console.log(response);
         this.articles = response.data;
       } catch (err) {
